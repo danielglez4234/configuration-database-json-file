@@ -266,12 +266,6 @@ def init():
             passwd=args['password'],
             database=args['database']
         )
-        # db_connection = mysql.connector.connect(
-        #     host='calp-ltdb',
-        #     user='mmuser',
-        #     passwd='gtcmysqlbdd',
-        #     database='monitormanager'
-        # )
         if db_connection.is_connected():
             db_info = db_connection.get_server_info()
             print("Connected to MySQL Server version ", db_info)
