@@ -110,7 +110,7 @@ def sqlErrors(error):
 #######################################
 def getConfigurationData():
     json_data = []
-    db_cursor.execute("select id as component_id, name, className from monitor_component;")
+    db_cursor.execute("select id as component_id, name, className from monitor_component limit 20;")
     result = db_cursor.fetchall()
 
     for (component_id, name, className) in result:
@@ -213,7 +213,7 @@ def getConfigurationData():
             # magnitude value
             db_cursor.execute("select name as value_name "
                               "from magnitude_value "
-                              "where id_magnitude_type = " + str(id_magnitude_type) + " ")
+                              "where id_magnitude_type = " + str(id_magnitude_type) + "  order by value ASC;")
             resultMagnitudesValues = db_cursor.fetchall()
 
             magnitude_values = ""
