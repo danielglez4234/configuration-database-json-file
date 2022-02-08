@@ -260,18 +260,18 @@ def getConfigurationData():
 def init():
     try:
         print("Conectando con %s..." % 'calp-ltdb')
-        # db_connection = mysql.connector.connect(
-        #     host=(args['host'] or 'localhost'),
-        #     user=args['user'],
-        #     passwd=args['password'],
-        #     database=args['database']
-        # )
         db_connection = mysql.connector.connect(
-            host='calp-ltdb',
-            user='mmuser',
-            passwd='gtcmysqlbdd',
-            database='monitormanager'
+            host=(args['host'] or 'localhost'),
+            user=args['user'],
+            passwd=args['password'],
+            database=args['database']
         )
+        # db_connection = mysql.connector.connect(
+        #     host='calp-ltdb',
+        #     user='mmuser',
+        #     passwd='gtcmysqlbdd',
+        #     database='monitormanager'
+        # )
         if db_connection.is_connected():
             db_info = db_connection.get_server_info()
             print("Connected to MySQL Server version ", db_info)
@@ -302,7 +302,7 @@ if __name__ == '__main__':
         parser.add_argument('-u', '--user', help='Usuario para acceder a la base de datos', required=True)
         parser.add_argument('-p', '--password', help='Password para acceder a la base de datos', required=True)
         parser.add_argument('-d', '--database', help='Esquema de la base de datos', required=True)
-        # args = vars(parser.parse_args())
+        args = vars(parser.parse_args())
         init()
     except Exception as error:
         print(error)
