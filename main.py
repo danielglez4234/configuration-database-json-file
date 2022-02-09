@@ -110,7 +110,7 @@ def sqlErrors(error):
 #######################################
 def getConfigurationData():
     json_data = []
-    db_cursor.execute("select id as component_id, name, className from monitor_component limit 20;")
+    db_cursor.execute("select id as component_id, name, className from monitor_component;")
     result = db_cursor.fetchall()
 
     for (component_id, name, className) in result:
