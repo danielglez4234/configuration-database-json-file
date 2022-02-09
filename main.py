@@ -255,7 +255,7 @@ def getConfigurationData():
 
 
 #######################################
-# Conexión con la base de datos
+# Database Connection
 #######################################
 def init():
     try:
@@ -291,7 +291,7 @@ def init():
 if __name__ == '__main__':
     try:
         parser = argparse.ArgumentParser(description='Components Database Format Constructor')
-        # Conexión Base de Datos
+        # Database Connection args
         parser.add_argument('-x', '--host', help='Host de la base de datos', required=True)
         parser.add_argument('-u', '--user', help='Usuario para acceder a la base de datos', required=True)
         parser.add_argument('-p', '--password', help='Password para acceder a la base de datos', required=True)
